@@ -50,11 +50,6 @@ class NamedShapeClass {
         self.name = name
     }
     
-    init(name: String, sides: Int) {
-        self.name = name
-        self.numberOfSides = sides
-    }
-    
     func description() -> String {
         return "A shape with \(numberOfSides) sides."
     }
