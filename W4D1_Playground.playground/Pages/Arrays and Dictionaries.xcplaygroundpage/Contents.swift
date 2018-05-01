@@ -19,18 +19,30 @@ myDictionary["Principal"] = 1
  - Experiment:
  Try creating an array and dictionary using `'let'` vs `'var'` then try adding something to them. What do you notice? For the array, you can use a method called 'append' to add something to it.
  */
+let myArray = [1, 2, 3]
+var myArray2 = [1, 2, 3]
+myArray2.append(4)
 
+let myConstantDictionary = ["Name":"John", "Age":30] as [String : Any]
+var myVariableDictionary2 = ["Name":"John", "Age":30] as [String : Any]
+myVariableDictionary2["Name"] = "Joe"
 
+myVariableDictionary2
 /*:
  - Experiment:
  Try creating an empty array with an explicit type `[type]`. What happens when you add a value that isn't the same type?
  */
+var myTypeArray = [String]()
 
 
 /*:
  - Experiment:
  Try creating an empty dictionary with an explicit type. `[keyType: valueType]`
  */
+
+
+
+var myNewDictionary = [String:String]()
 
 
 /*:
@@ -43,7 +55,9 @@ myDictionary["Principal"] = 1
  - reverse
  - count
  */
-
+var myReverseArray = [1, 2, 3, 4]
+myReverseArray.reverse()
+myReverseArray
 
 /*:
  - Experiment:
@@ -52,7 +66,9 @@ myDictionary["Principal"] = 1
  - isEmpty
  - count
  */
-
+var myNewewDictionary = ["Name":"John", "Age":"31", "Gender":"Male"]
+myNewewDictionary.removeValue(forKey: "Name")
+myNewewDictionary.count
 
 /*:
  - Callout(Challenge):
@@ -60,6 +76,15 @@ myDictionary["Principal"] = 1
  
     Finally, print out each person's name from the array using their index and string interpolation
 */
+var myNewMutableArray = [String]()
+    myNewMutableArray.append("John")
+    myNewMutableArray.append("Karen")
+    myNewMutableArray.append("Jane")
+
+for i in 0..<myNewMutableArray.count {
+    print(myNewMutableArray[i])
+}
+
 
 
 /*:
@@ -74,6 +99,7 @@ myDictionary["Principal"] = 1
  
     On the next line, add this last person's info: Bob - $45000
  */
-
+var myNewMutableDict = ["John":5000, "Jane":70000, "Karen":62000]
+myNewMutableDict["Bob"] = 45000
 
 //: [Next](@next)

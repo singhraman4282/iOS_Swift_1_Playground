@@ -19,14 +19,15 @@ var doubleNumberValue: Double? = nil
  - Experiment:
  Declare a non-optional variable of a `String` and set it to `nil`. What happens?
  */
+var thisStiring = "ABC:"
 
 
 /*:
  - Experiment:
  Declare an optional variable of a type `String` and set an initial `String` value to it. Then set it to `nil` on the next line. Does this work? Why or why not?
  */
-
-
+var thisStiringOpt:String? = "ABC:"
+    thisStiringOpt = nil
 /*:
  Let's consider multiplying two numbers together that are of different types. Since we have a `Double` and an `Int`, we need to convert the two numbers to the same type. For example, creating a new `Double` using an `Int`.
  */
@@ -47,7 +48,9 @@ ratio * convertIntegerValue // now this works!
  - Experiment:
  Declare a `String` containing digits and try converting it to a `Double` the same way shown in the above example. What do you notice about the variable type? Hint: Use 'Option' + Mouse Click on the variable to see the type
  */
-
+var myDoubleString = "12"
+var myDoubleDouble = Double(myDoubleString)
+myDoubleDouble! * ratio
 
 /*:
  - Experiment:
@@ -77,7 +80,7 @@ print("\(myOptionalDouble!)")
   - Experiment:
  Now you try! Try printing out your converted `Double?` with a force unwrap
 */
-
+print(myDoubleDouble!)
 
 
 /*:
@@ -92,7 +95,9 @@ print("\(myOptionalDouble!)")
  Declare an optional variable of a type `String` and set an initial `String` value to it. Try printing it.
  Now print it again, but this time unwrap the optional variable using the `'!'`. What's different about the two lines you printed?
  */
-
+var optStr:String? = "Tjis"
+print(optStr)
+print(optStr!)
 
 /*:
  - Experiment:
@@ -106,7 +111,7 @@ print("\(myOptionalDouble!)")
   The code below uses a conditional unwrap on `gravityConstant`. This creates a new variable `unwrapped`, but only if `gravityConstant` is *not* nil. If you option click on the variable `unwrapped` you will notice that it is a `Double` not a `Double?`
 */
 
-let gravityConstant: Double? = 9.8
+let gravityConstant: Double? = nil
 
 if let unwrapped = gravityConstant {
     // unwrapped exists in this block, and is number unwrapped.
@@ -128,11 +133,24 @@ if let unwrapped = gravityConstant {
  Create an array with containing elements of any type of your choice. Try experimenting with the array methods `'first'` and `'last'` to find out what they do. You'll see that both return optional values. Print out the values of first and last by using conditional unwrapping.
  */
 
-
+var myArr = ["a", "b", "c", "d"]
+myArr.first
+myArr.last
 /*:
  - Experiment:
  Using the same array, experiment with the array method `'indexOf'` and find out what it does. Print out the value using conditional unwrapping.
  */
+if let a = myArr.index(of: "c") {
+    print(myArr[a])
+}
+
+var carDict = ["Mazda3":50000, "CRV":60000, "Hummer":100000]
+if let thisCar = carDict["CRV"] {
+    print(thisCar)
+}
+if let thisCar = carDict["BMW"] {
+    print(thisCar)
+}
 
 
 /*:

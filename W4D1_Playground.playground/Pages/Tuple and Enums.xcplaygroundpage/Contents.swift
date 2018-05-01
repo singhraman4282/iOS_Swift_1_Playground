@@ -23,13 +23,15 @@ namedPersonTuple.age
  - Experiment:
  Try creating your own tuple. Mix in different variable types and try mixing some parameters with names and some without. Does it still work?
  */
-
-
+var myTuple = (firstName:"R", lastName:"S", 23)
+myTuple.0
+myTuple.1
+myTuple.2
 /*:
  - Experiment:
  Try nesting tuples within one another. Create a tuple and add a tuple as one of its items.
  */
-
+var myNestedTuple = (firstName:"R", lastName:"S", 23, ("S", "R"))
 
 /*:
  - Experiment:
@@ -52,7 +54,13 @@ for (kind, numbers) in interestingNumbers {
 To test: call your new function with eligable true and false, and print the two values
  (Hint: Use optional return value and conditional unwrapping)
  */
-
+func thisFunc(name:String, age:Int, isTrue:Bool) -> ((name:String, age:Int)?) {
+    if isTrue {
+        return (name, age)
+    } else {
+        return nil
+    }
+}
 
 /*:
  ## Enums
@@ -63,24 +71,50 @@ To test: call your new function with eligable true and false, and print the two 
  */
 
 enum Months: Int{
-    case January = 1
+    case January
     case Feburary
     case March
     case April
-    case May, June, July, August
-    //...
+    case May, June, July, August, September, October, November, December
+
     
     func abbreviatedStringForm() -> String {
+        
         switch self {
-            default:
-                return ""
-        }
+        case.January: return "Jan"
+        case.Feburary: return "Feb"
+        case.March: return "Mar"
+        case.April: return "Apr"
+        case.May: return "May"
+        case.June: return "Jun"
+        case.July: return "Jul"
+        case.August: return "Aug"
+        case.September: return "Sep"
+        case.October: return "Oct"
+        case.November: return "Nov"
+        case.December: return "Dec"
+        }//switch
+    }//abbreviatedString
+    
+    func twoMonths(month1:Months) -> Int {
+        var abc = 0
+        
+        var firstMonth = month1.rawValue
+        var secondMonth = self.rawValue
+        
+        abc = Int(firstMonth) - Int(secondMonth)
+        
+        return abc
     }
+
 }
+
 
 //: Now we can represents the months in our program with easy readiablity and minimal mistakes.
 let januaryMonth = Months.January
 let marchMonth = Months.March
+let diffrence = januaryMonth.twoMonths(month1: .April)
+
 
 /*:
  - Experiment:
@@ -88,8 +122,9 @@ let marchMonth = Months.March
  \
 Try removing the '= 1' from the Months enum. Now what is different?
  */
-
-
+let janRawVal = Months.January.rawValue
+let marRawVal = Months.March.rawValue
+let sumVal = janRawVal + marRawVal
 /*:
  - Experiment:
  Finish the rest of the months for our `Months` enum. Then take a look at `abbreviatedStringForm()` function. Complete this function so that it returns the abbreviated form of the desired month as a String. ie: calling `Months.January.abbreviatedStringForm()` returns "Jan".
